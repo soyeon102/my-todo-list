@@ -16,13 +16,16 @@ const TodoList = () => {
     setTodos([...todos, todo]);
   };
 
-  // console.log(todos);
+  const handleDelete = (id) => {
+    const deleteItem = [...todos].filter((item) => item.id !== id);
+    setTodos(deleteItem);
+  };
 
   return (
     <Layout>
       <Header />
       <Form saveTodoData={saveTodoData} />
-      <List todoList={todos} />
+      <List todoList={todos} handleDelete={handleDelete} />
     </Layout>
   );
 };

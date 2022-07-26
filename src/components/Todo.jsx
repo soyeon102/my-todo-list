@@ -1,12 +1,14 @@
-import { getValue } from '@testing-library/user-event/dist/utils';
 import styled from 'styled-components';
 
-const Todo = (props) => {
-  const item = {
-    title: props.item.title,
-    content: props.item.content,
-    done: props.item.done,
-  };
+const Todo = ({ item, handleDelete }) => {
+  // const item = {
+  //   id: props.item.id,
+  //   title: props.item.title,
+  //   content: props.item.content,
+  //   done: props.item.done,
+  // };
+
+  const { id, title, content, done } = item;
 
   const handleDoneClick = (e) => {
     console.log(e);
@@ -14,18 +16,20 @@ const Todo = (props) => {
 
   return (
     <Container>
-      <TodoCard done={item.done}>
+      <TodoCard done={done}>
         <CardTitle>
-          <h3>{item.title}</h3>
+          <h3>{title}</h3>
         </CardTitle>
         <CardComment>
-          <h3>{item.content}</h3>
+          <h3>{content}</h3>
         </CardComment>
 
         <ButtonGroup>
-          <Btn btnColor='red'>삭제하기</Btn>
-          <Btn btnColor='green' onClick={handleDoneClick}>
-            {item.done === false ? '완료' : '취소'}
+          <Btn btnColor='red' onClick={() => handleDelete(id)}>
+            삭제하기
+          </Btn>
+          <Btn btnColor='green' onClick={() => handleDoneClick(id)}>
+            {done === false ? '완료' : '취소'}
           </Btn>
         </ButtonGroup>
       </TodoCard>
@@ -35,7 +39,7 @@ const Todo = (props) => {
 
 export default Todo;
 
-const Container = styled.div`
+const Container = styled.li`
   padding: 20px 0;
 `;
 
@@ -44,7 +48,7 @@ const TodoCard = styled.div`
   padding: 10px 20px;
   border: 2px solid ${(props) => (props.done ? 'green' : 'red')};
   border-radius: 10px;
-  overflow-wrap: ;
+  /* overflow-wrap:  */
 `;
 
 const CardTitle = styled.div`
@@ -76,7 +80,7 @@ const ButtonGroup = styled.div`
   margin-top: 30px;
 `;
 
-const Btn = styled.div`
+const Btn = styled.button`
   & + & {
     margin-left: 10px;
   }
@@ -89,6 +93,7 @@ const Btn = styled.div`
 
   width: 50%;
   text-align: center;
+  background-color: transparent;
   font-size: 14px;
   padding: 5px 0;
   border: 2px solid ${(props) => props.btnColor};

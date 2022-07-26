@@ -2,8 +2,6 @@ import Todo from './Todo';
 import styled from 'styled-components';
 
 const List = (props) => {
-  // console.log(props.todoList);
-
   return (
     <div>
       <TodoContent>
@@ -11,7 +9,13 @@ const List = (props) => {
           <h2>Working🔥</h2>
           <TodoCard>
             {props.todoList.map((todo) =>
-              todo.done === false ? <Todo item={todo} key={todo.id} /> : null
+              todo.done === false ? (
+                <Todo
+                  item={todo}
+                  key={todo.id}
+                  handleDelete={props.handleDelete}
+                />
+              ) : null
             )}
           </TodoCard>
         </TodoList>
@@ -39,7 +43,7 @@ const TodoList = styled.div`
   border: 1px solid red;
 `;
 
-const TodoCard = styled.div`
+const TodoCard = styled.ul`
   display: grid;
   grid-template-columns: repeat(auto-fill, 260px);
   row-gap: 10px;

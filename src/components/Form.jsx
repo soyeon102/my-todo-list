@@ -99,10 +99,8 @@ const ButtonArea = styled.div`
     height: 50px;
     border-radius: 50%;
     background-color: transparent;
-    /* border: 1px solid black; */
-    /* Todo: inset border 색상 */
-    border: 2px inset;
-
+    border: 1px solid white;
+    cursor: pointer;
     color: white;
     font-size: 30px;
   }
