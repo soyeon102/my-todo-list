@@ -68,6 +68,8 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 10px;
+  box-shadow: 3px 3px 8px gray;
   color: white;
   padding: 20px;
 `;
@@ -88,10 +90,10 @@ const InputArea = styled.div`
     width: 100%;
     height: 40px;
     padding: 4px 10px;
+    border: 1px solid gray;
     outline: none;
     box-sizing: border-box;
     background-color: transparent;
-    color: white;
   }
 `;
 
@@ -101,10 +103,13 @@ const ButtonArea = styled.div`
     height: 50px;
     border-radius: 50%;
     background-color: transparent;
-    border: 1px solid white;
+    border: 1px solid gray;
     cursor: pointer;
-    color: white;
     font-size: 30px;
+
+    &:hover {
+      background-color: #f6f6f6;
+    }
   }
 `;
 

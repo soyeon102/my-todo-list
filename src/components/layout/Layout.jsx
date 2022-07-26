@@ -15,11 +15,8 @@ const Container = styled.div`
   max-width: 1200px;
   box-sizing: content-box;
   margin: 0 auto;
-  background-color: #243e57;
 `;
 
-const Contents = styled.div`
-  padding: 0 20px 20px;
-`;
+const Contents = styled.div``;
 
 export default Layout;

@@ -46,9 +46,10 @@ export default List;
 const TodoContent = styled.div``;
 
 const TodoList = styled.div`
-  h2 {
-    color: white;
-  }
+  margin-top: 20px;
+  border-radius: 10px;
+  background-color: #f6f6f6;
+  padding: 20px;
 `;
 
 const TodoCard = styled.ul`

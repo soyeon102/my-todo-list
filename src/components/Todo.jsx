@@ -29,7 +29,7 @@ const Todo = ({ item, handleDelete, handleToggle }) => {
 export default Todo;
 
 const Container = styled.li`
-  padding: 20px 0;
+  padding: 10px 0;
 `;
 
 const TodoCard = styled.div`
@@ -37,7 +37,6 @@ const TodoCard = styled.div`
   padding: 10px 20px;
   border: 2px solid ${(props) => (props.done ? 'green' : 'red')};
   border-radius: 10px;
-  background-color: white;
   /* overflow-wrap:  */
 `;
 
