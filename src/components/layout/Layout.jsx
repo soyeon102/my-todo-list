@@ -1,16 +1,25 @@
 import styled from 'styled-components';
+import Header from '../Header';
 
 const Layout = (props) => {
-  return <Container>{props.children}</Container>;
+  return (
+    <Container>
+      <Header />
+      <Contents>{props.children}</Contents>
+    </Container>
+  );
 };
 
 const Container = styled.div`
   min-width: 800px;
   max-width: 1200px;
-  padding: 0 10px;
   box-sizing: content-box;
   margin: 0 auto;
-  border: 1px solid black;
+  background-color: #243e57;
+`;
+
+const Contents = styled.div`
+  padding: 0 20px 20px;
 `;
 
 export default Layout;

@@ -1,5 +1,4 @@
 import Layout from '../components/layout/Layout';
-import Header from '../components/Header';
 import Form from '../components/Form';
 import List from '../components/List';
 import { useState } from 'react';
@@ -21,11 +20,23 @@ const TodoList = () => {
     setTodos(deleteItem);
   };
 
+  const handleToggle = (id) => {
+    // console.log('TodoList에서 출력', id);
+    setTodos(
+      todos.map((todo) =>
+        todo.id === id ? { ...todo, done: !todo.done } : todo
+      )
+    );
+  };
+
   return (
     <Layout>
-      <Header />
       <Form saveTodoData={saveTodoData} />
-      <List todoList={todos} handleDelete={handleDelete} />
+      <List
+        todoList={todos}
+        handleDelete={handleDelete}
+        handleToggle={handleToggle}
+      />
     </Layout>
   );
 };

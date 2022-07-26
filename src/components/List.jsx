@@ -14,6 +14,7 @@ const List = (props) => {
                   item={todo}
                   key={todo.id}
                   handleDelete={props.handleDelete}
+                  handleToggle={props.handleToggle}
                 />
               ) : null
             )}
@@ -24,7 +25,14 @@ const List = (props) => {
           <h2>Done🎉</h2>
           <TodoCard>
             {props.todoList.map((todo) =>
-              todo.done === true ? <Todo item={todo} key={todo.id} /> : null
+              todo.done === true ? (
+                <Todo
+                  item={todo}
+                  key={todo.id}
+                  handleDelete={props.handleDelete}
+                  handleToggle={props.handleToggle}
+                />
+              ) : null
             )}
           </TodoCard>
         </TodoList>
@@ -35,12 +43,12 @@ const List = (props) => {
 
 export default List;
 
-const TodoContent = styled.div`
-  border: 1px solid black;
-`;
+const TodoContent = styled.div``;
 
 const TodoList = styled.div`
-  border: 1px solid red;
+  h2 {
+    color: white;
+  }
 `;
 
 const TodoCard = styled.ul`

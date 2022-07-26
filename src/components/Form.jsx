@@ -16,19 +16,22 @@ const Form = (props) => {
   const onAddTodo = (e) => {
     e.preventDefault();
 
-    const inputData = {
-      title: todoData.title,
-      content: todoData.content,
-      done: false,
-    };
+    if (todoData.title.length > 0 && todoData.content.length > 0) {
+      const inputData = {
+        title: todoData.title,
+        content: todoData.content,
+        done: false,
+      };
 
-    props.saveTodoData(inputData);
+      props.saveTodoData(inputData);
 
-    setTodoData({
-      title: '',
-      content: '',
-    });
-
+      setTodoData({
+        title: '',
+        content: '',
+      });
+    } else {
+      alert('내용을 입력해주세요');
+    }
     // console.log(inputData);
   };
 
@@ -65,7 +68,6 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #333;
   color: white;
   padding: 20px;
 `;

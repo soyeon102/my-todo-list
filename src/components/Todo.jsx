@@ -1,18 +1,7 @@
 import styled from 'styled-components';
 
-const Todo = ({ item, handleDelete }) => {
-  // const item = {
-  //   id: props.item.id,
-  //   title: props.item.title,
-  //   content: props.item.content,
-  //   done: props.item.done,
-  // };
-
+const Todo = ({ item, handleDelete, handleToggle }) => {
   const { id, title, content, done } = item;
-
-  const handleDoneClick = (e) => {
-    console.log(e);
-  };
 
   return (
     <Container>
@@ -28,7 +17,7 @@ const Todo = ({ item, handleDelete }) => {
           <Btn btnColor='red' onClick={() => handleDelete(id)}>
             삭제하기
           </Btn>
-          <Btn btnColor='green' onClick={() => handleDoneClick(id)}>
+          <Btn btnColor='green' onClick={() => handleToggle(id)}>
             {done === false ? '완료' : '취소'}
           </Btn>
         </ButtonGroup>
@@ -48,6 +37,7 @@ const TodoCard = styled.div`
   padding: 10px 20px;
   border: 2px solid ${(props) => (props.done ? 'green' : 'red')};
   border-radius: 10px;
+  background-color: white;
   /* overflow-wrap:  */
 `;
 

@@ -14,9 +14,12 @@ const HeaderContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 20px;
-  background-color: #ededed;
+  color: white;
+  background-color: #839acc;
 `;
-const HeaderLeft = styled.div``;
+const HeaderLeft = styled.div`
+  font-size: 24px;
+`;
 const HeaderRight = styled.div``;
 
 export default Header;
