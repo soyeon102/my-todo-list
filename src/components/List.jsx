@@ -1,20 +1,20 @@
 import Todo from './Todo';
 import styled from 'styled-components';
 
-const List = (props) => {
+const List = ({ todoList, handleDelete, handleToggle }) => {
   return (
     <div>
       <TodoContent>
         <TodoList>
           <h2>Working🔥</h2>
           <TodoCard>
-            {props.todoList.map((todo) =>
+            {todoList.map((todo) =>
               todo.done === false ? (
                 <Todo
                   item={todo}
                   key={todo.id}
-                  handleDelete={props.handleDelete}
-                  handleToggle={props.handleToggle}
+                  handleDelete={handleDelete}
+                  handleToggle={handleToggle}
                 />
               ) : null
             )}
@@ -24,13 +24,13 @@ const List = (props) => {
         <TodoList>
           <h2>Done🎉</h2>
           <TodoCard>
-            {props.todoList.map((todo) =>
+            {todoList.map((todo) =>
               todo.done === true ? (
                 <Todo
                   item={todo}
                   key={todo.id}
-                  handleDelete={props.handleDelete}
-                  handleToggle={props.handleToggle}
+                  handleDelete={handleDelete}
+                  handleToggle={handleToggle}
                 />
               ) : null
             )}

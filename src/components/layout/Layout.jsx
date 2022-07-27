@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 import Header from '../Header';
 
-const Layout = (props) => {
+const Layout = ({ children }) => {
   return (
     <Container>
       <Header />
-      <Contents>{props.children}</Contents>
+      <Contents>{children}</Contents>
     </Container>
   );
 };

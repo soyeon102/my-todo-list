@@ -1,8 +1,12 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 
-const Form = (props) => {
-  const [todoData, setTodoData] = useState({});
+const Form = ({ saveTodoData }) => {
+  const [todoData, setTodoData] = useState({
+    title: '',
+    content: '',
+  });
+  const { title, content } = todoData;
 
   const handleTodoInput = (e) => {
     setTodoData((prev) => {
@@ -23,7 +27,7 @@ const Form = (props) => {
         done: false,
       };
 
-      props.saveTodoData(inputData);
+      saveTodoData(inputData);
 
       setTodoData({
         title: '',
@@ -44,7 +48,7 @@ const Form = (props) => {
             placeholder='Title'
             name='title'
             onChange={handleTodoInput}
-            value={todoData.title || ''}
+            value={title}
           />
         </InputArea>
         <InputArea>
@@ -53,7 +57,7 @@ const Form = (props) => {
             placeholder='Content'
             name='content'
             onChange={handleTodoInput}
-            value={todoData.content || ''}
+            value={content}
           />
         </InputArea>
       </TextArea>
