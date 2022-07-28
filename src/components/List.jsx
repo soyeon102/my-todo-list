@@ -8,15 +8,16 @@ const List = ({ todoList, handleDelete, handleToggle }) => {
         <TodoList>
           <h2>Working🔥</h2>
           <TodoCard>
-            {todoList.map((todo) =>
-              todo.done === false ? (
-                <Todo
-                  item={todo}
-                  key={todo.id}
-                  handleDelete={handleDelete}
-                  handleToggle={handleToggle}
-                />
-              ) : null
+            {todoList.map(
+              (todo) =>
+                todo.done === false && (
+                  <Todo
+                    item={todo}
+                    key={todo.id}
+                    handleDelete={handleDelete}
+                    handleToggle={handleToggle}
+                  />
+                )
             )}
           </TodoCard>
         </TodoList>
@@ -24,15 +25,16 @@ const List = ({ todoList, handleDelete, handleToggle }) => {
         <TodoList>
           <h2>Done🎉</h2>
           <TodoCard>
-            {todoList.map((todo) =>
-              todo.done === true ? (
-                <Todo
-                  item={todo}
-                  key={todo.id}
-                  handleDelete={handleDelete}
-                  handleToggle={handleToggle}
-                />
-              ) : null
+            {todoList.map(
+              (todo) =>
+                todo.done === true && (
+                  <Todo
+                    item={todo}
+                    key={todo.id}
+                    handleDelete={handleDelete}
+                    handleToggle={handleToggle}
+                  />
+                )
             )}
           </TodoCard>
         </TodoList>

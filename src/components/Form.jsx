@@ -1,7 +1,10 @@
-import { useState } from 'react';
+import React from 'react';
+import { useState, useRef } from 'react';
 import styled from 'styled-components';
 
 const Form = ({ saveTodoData }) => {
+  const titleRef = React.createRef(null);
+  const contentRef = React.createRef(null);
   const [todoData, setTodoData] = useState({
     title: '',
     content: '',
@@ -20,10 +23,10 @@ const Form = ({ saveTodoData }) => {
   const onAddTodo = (e) => {
     e.preventDefault();
 
-    if (todoData.title.length > 0 && todoData.content.length > 0) {
+    if (title.trim() !== '' && content.trim() !== '') {
       const inputData = {
-        title: todoData.title,
-        content: todoData.content,
+        title: title,
+        content: content,
         done: false,
       };
 
@@ -35,6 +38,7 @@ const Form = ({ saveTodoData }) => {
       });
     } else {
       alert('내용을 입력해주세요');
+      title === '' ? titleRef.current.focus() : contentRef.current.focus();
     }
     // console.log(inputData);
   };
@@ -49,6 +53,7 @@ const Form = ({ saveTodoData }) => {
             name='title'
             onChange={handleTodoInput}
             value={title}
+            ref={titleRef}
           />
         </InputArea>
         <InputArea>
@@ -58,6 +63,7 @@ const Form = ({ saveTodoData }) => {
             name='content'
             onChange={handleTodoInput}
             value={content}
+            ref={contentRef}
           />
         </InputArea>
       </TextArea>
