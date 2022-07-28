@@ -6,9 +6,9 @@ import { useState } from 'react';
 const TodoList = () => {
   const [todos, setTodos] = useState([]);
 
-  const saveTodoData = (e) => {
+  const saveTodoData = (data) => {
     const todo = {
-      ...e,
+      ...data,
       id: Math.random().toString(),
     };
     // console.log(todo);

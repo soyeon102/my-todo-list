@@ -38,7 +38,9 @@ const Form = ({ saveTodoData }) => {
       });
     } else {
       alert('내용을 입력해주세요');
-      title === '' ? titleRef.current.focus() : contentRef.current.focus();
+
+      if (content.trim() === '') contentRef.current.focus();
+      if (title.trim() === '') titleRef.current.focus();
     }
     // console.log(inputData);
   };
